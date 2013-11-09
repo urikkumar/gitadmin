@@ -1,0 +1,237 @@
+<!-- ace styles -->
+
+        <!--link rel="stylesheet" href="assets/css/ace.min.css" />
+        <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+        <link rel="stylesheet" href="assets/css/ace-skins.min.css" /-->
+        <link rel="stylesheet" href="http://mbielanczuk.com/upload/gantt-demo/style.css"/>
+        <!--link rel="stylesheet" href="http://taitems.github.com/UX-Lab/core/css/prettify.css" /-->
+
+        <style type="text/css">
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                padding: 0 0 50px 0;
+
+            }
+            .contain {
+                width: 800px;
+                margin: 0 auto;
+            }
+            .gantt, .gantt2 {
+                width: inherit;
+                margin: 40px auto;
+                border: 14px solid #ddd;
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    border-radius: 6px;
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+            }
+            
+            h1 {
+                margin: 40px 0 20px 0;
+            }
+            h2 {
+                font-size: 1.5em;
+                padding-bottom: 3px;
+                border-bottom: 1px solid #DDD;
+                margin-top: 50px;
+                margin-bottom: 25px;
+            }
+            table th:first-child {
+                width: 150px;
+            }
+        </style>
+    </head>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+    try {
+        ace.settings.check('breadcrumbs', 'fixed')
+    } catch (e) {}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+
+        <li class="active">Gantt Veiw v2 </li>
+    </ul>
+    <!-- .breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                <i class="icon-search nav-search-icon"></i>
+            </span>
+        </form>
+    </div>
+    <!-- #nav-search -->
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+
+         <div class="contain">
+            
+            <div class="gantt"> </div>
+
+        </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+
+<!--script src="scripts/lib/gantt/jquery-1.7.min.js"></script-->
+    <!--script src="js/jquery.fn.gantt.js"></script-->
+    <!--script src="scripts/lib/tooltip.js"></script>
+    <script src="scripts/lib/popover.js"></script-->
+    <script src="http://mbielanczuk.com/upload/gantt-demo/js/jquery.fn.gantt.js"></script>
+
+   <script type="text/javascript">
+    require(['jquery', 'jqueryui', 'jquerygantt',], function($, jqueryui, jquerygantt){
+
+       $(function () {
+  
+var data = [ { "desc" : "→ Step B",
+    "name" : " Step A ",
+    "values" : [ { "customClass" : "ganttRed",
+          "dep" : "b1",
+          "desc" : "Id: 0<br/>Name:   Step A",
+          "from" : "/Date(1320182000000)/",
+          "id" : "b0",
+          "label" : " Step A",
+          "to" : "/Date(1320301600000)/"
+        } ]
+  },
+  { "desc" : "→ step C",
+    "name" : " Step B ",
+    "values" : [ { "customClass" : "ganttOrange",
+          "dep" : "b2",
+          "desc" : "Id: 1<br/>Name:   Step B",
+          "from" : "/Date(1320601600000)/",
+          "id" : "b1",
+          "label" : " Step B",
+          "to" : "/Date(1320870400000)/"
+        } ]
+  },
+  { "desc" : "→ step D",
+    "name" : " Step C ",
+    "values" : [ { "customClass" : "ganttGreen",
+          "dep" : "b3",
+          "desc" : "Id: 2<br/>Name:   Step C",
+          "from" : "/Date(1321192000000)/",
+          "id" : "b2",
+          "label" : " Step C",
+          "to" : "/Date(1321500400000)/"
+        } ]
+  },
+  { "desc" : "→ step E",
+    "name" : " Step D ",
+    "values" : [ { "dep" : "b4",
+          "desc" : "Id: 3<br/>Name:   Step D",
+          "from" : "/Date(1320302400000)/",
+          "id" : "b3",
+          "label" : " Step D",
+          "to" : "/Date(1320551600000)/"
+        } ]
+  },
+  { "desc" : "—",
+    "name" : " Step E ",
+    "values" : [ { "customClass" : "ganttRed",
+          "desc" : "Id: 4<br/>Name:   Step E",
+          "from" : "/Date(1320802400000)/",
+          "id" : "b4",
+          "label" : " Step E",
+          "to" : "/Date(1321994800000)/"
+        } ]
+  },
+  { "desc" : "→ step B",
+    "name" : " Step F ",
+    "values" : [ { "customClass" : "ganttOrange",
+          "dep" : "b1",
+          "desc" : "Id: 5<br/>Name:   Step F",
+          "from" : "/Date(1320192000000)/",
+          "id" : "b5",
+          "label" : " Step F",
+          "to" : "/Date(1320401600000)/"
+        } ]
+  },
+  { "desc" : "→ step C",
+    "name" : " Step G ",
+    "values" : [ { "customClass" : "ganttGreen",
+          "dep" : "b8",
+          "desc" : "Id: 6<br/>Name:   Step G",
+          "from" : "/Date(1320401600000)/",
+          "id" : "b6",
+          "label" : " Step G",
+          "to" : "/Date(1320570400000)/"
+        } ]
+  },
+  { "desc" : "→ Step J",
+    "name" : " Step H ",
+    "values" : [ { "dep" : "b9",
+          "desc" : "Id: 7<br/>Name:   Step H",
+          "from" : "/Date(1321192000000)/",
+          "id" : "b7",
+          "label" : " Step H",
+          "to" : "/Date(1321500400000)/"
+        } ]
+  },
+  { "desc" : "→ Step H",
+    "name" : " Step I ",
+    "values" : [ { "customClass" : "ganttRed",
+          "dep" : "b7",
+          "desc" : "Id: 8<br/>Name:   Step I",
+          "from" : "/Date(1320302400000)/",
+          "id" : "b8",
+          "label" : " Step I",
+          "to" : "/Date(1320551600000)/"
+        } ]
+  },
+  { "desc" : "—",
+    "name" : " Step J ",
+    "values" : [ { "customClass" : "ganttOrange",
+          "desc" : "Id: 9<br/>Name:   Step J",
+          "from" : "/Date(1320802400000)/",
+          "id" : "b9",
+          "label" : " Step J",
+          "to" : "/Date(1321994800000)/"
+        } ]
+  }
+];
+
+$(".gantt").gantt({source: data, navigate: 'scroll', scale: 'days', maxScale: 'weeks', minScale: 'hours'});
+
+});
+});
+
+
+    </script>
+<!-- /.page-content -->
+<!--[if !IE]> -->
+
+      <!--  <script type="text/javascript">
+            window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+        </script-->
+
+        <!-- <![endif]-->
+
+        <!--[if IE]-->
+<!--<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+      <!--  <script type="text/javascript">
+            if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+        </script>
