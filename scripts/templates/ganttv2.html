@@ -98,11 +98,12 @@
     <script src="http://mbielanczuk.com/upload/gantt-demo/js/jquery.fn.gantt.js"></script>
 
    <script type="text/javascript">
-    require(['jquery', 'jqueryui', 'jquerygantt',], function($, jqueryui, jquerygantt){
+    require(['jquery', 'jqueryui', 'jquerygantt', 'tooltip', 'popover'], function($, jqueryui, jquerygantt, tooltip, popover){
 
        $(function () {
   
-var data = [ { "desc" : "→ Step B",
+var data = [ 
+{ "desc" : "→ Step B",
     "name" : " Step A ",
     "values" : [ { "customClass" : "ganttRed",
           "dep" : "b1",

@@ -30,10 +30,11 @@ define([
     'views/wysiwyg',
     'views/error_500',
     'views/ganttv1',
-    'views/ganttv2'
+    'views/ganttv2',
+    'views/ganttv3'
     
     ], function($, _, Backbone, dashboardview, typographyview, elementsview, buttonview, errorview, calendarview, blank, dropzone, faq, form_elements, form_wizard, gallery, grid, inbox, invoice,
-        jqgrid, jquery_ui, login, nestable_list, pricing, profile, tables, timeline, treeview, widgets, wysiwyg, error_500, ganttv1, ganttv2) {
+        jqgrid, jquery_ui, login, nestable_list, pricing, profile, tables, timeline, treeview, widgets, wysiwyg, error_500, ganttv1, ganttv2, ganttv3) {
  
         var AppRouter = Backbone.Router.extend({
             routes: {
@@ -46,6 +47,7 @@ define([
                 'calendar'                  :'showCalendar',
                 'ganttv1'                   :'showganttv1',
                 'ganttv2'                   :'showganttv2',
+                'ganttv3'                   :'showganttv3',
                 'other-pages/blank'         :'showblank',
                 'forms/dropzone'            :'showdropzone',
                 'other-pages/faq'           :'showfaq',
@@ -132,6 +134,13 @@ define([
                 // Call render on the module we loaded in via the dependency array
                 var ganttv2view = new ganttv2();
                 ganttv2view.render();
+
+            });
+            app_router.on('route:showganttv3', function(){
+               
+                // Call render on the module we loaded in via the dependency array
+                var ganttv3view = new ganttv3();
+                ganttv3view.render();
 
             });
             app_router.on('route:showblank', function(){

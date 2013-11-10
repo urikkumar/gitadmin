@@ -1,0 +1,131 @@
+
+<head>
+	<link rel="stylesheet" type="text/css" href="scripts/lib/gantt3/jquery-ui-1.8.4.css" />
+	<link rel="stylesheet" type="text/css" href="scripts/lib/gantt3/reset.css" />
+	<link rel="stylesheet" type="text/css" href="scripts/lib/gantt3/jquery.ganttView.css" />
+	<style type="text/css">
+
+	       body {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                padding: 0 0 50px 0;
+
+            }
+            .contain {
+                width: 800px;
+                margin: 0;
+            }
+            
+             #ganttChart {
+                width: inherit;
+                margin: 40px auto;
+                border: 14px solid #ddd;
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    border-radius: 6px;
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+            }
+            
+            h1 {
+                margin: 40px 0 20px 0;
+            }
+            h2 {
+                font-size: 1.5em;
+                padding-bottom: 3px;
+                border-bottom: 1px solid #DDD;
+                margin-top: 50px;
+                margin-bottom: 25px;
+            }
+            table th:first-child {
+                width: 150px;
+            }
+        </style>
+	<title>jQuery Gantt</title>
+</head>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+    try {
+        ace.settings.check('breadcrumbs', 'fixed')
+    } catch (e) {}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+
+        <li class="active">Gantt Veiw v3 </li>
+    </ul>
+    <!-- .breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                <i class="icon-search nav-search-icon"></i>
+            </span>
+        </form>
+    </div>
+    <!-- #nav-search -->
+</div>
+<body>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+
+         <div class="contain">
+            
+              <h2>
+                Gantt View V3
+            </h2> 
+	      <div id="ganttChart"></div>
+
+	      <br/><br/>
+	      <div id="eventMessage"></div> 
+
+        </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+	<script type="text/javascript" src="scripts/lib/gantt3/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="scripts/lib/gantt3/date.js"></script>
+	<script type="text/javascript" src="scripts/lib/gantt3/jquery-ui-1.8.4.js"></script>
+	<script type="text/javascript" src="scripts/lib/gantt3/jquery.ganttView.js"></script>
+	<script type="text/javascript" src="scripts/lib/gantt3/data.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("#ganttChart").ganttView({ 
+				data: ganttData,
+				slideWidth: 900,
+				behavior: {
+					onClick: function (data) { 
+						var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onResize: function (data) { 
+						var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onDrag: function (data) { 
+						var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					}
+				}
+			});
+			
+			// $("#ganttChart").ganttView("setSlideWidth", 600);
+		});
+	</script>
+
+</body>
+
